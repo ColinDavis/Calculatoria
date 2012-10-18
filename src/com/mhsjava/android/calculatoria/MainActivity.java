@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
+	//fuck the police
 	String dBox, stored;
 	char function;
 	boolean justEqualed;
