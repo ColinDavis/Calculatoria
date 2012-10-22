@@ -103,6 +103,7 @@
         android:layout_above="@+id/button7"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="43dp"
-        android:text="@string/DisplayBox" />
+        android:text="@string/DisplayBox"
+         />
 
 </RelativeLayout>

@@ -13,11 +13,17 @@ public class MainActivity extends Activity {
 	boolean justEqualed;
 	TextView t;
 	
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
+    	setContentView(R.layout.activity_main);		//<===Makes Program NOT CRASH!!!!
     	stored = dBox = "";
     	justEqualed = false;
     	t = (TextView)findViewById(R.id.textView1);
+    	//t.isInEditMode();
+    	//String test = "TEST";
+    	t.setText("test");
+    	
     	
         super.onCreate(savedInstanceState);
         
@@ -41,7 +47,6 @@ public class MainActivity extends Activity {
     }
     public void buttonDown2(View view)
     {
-    	//t.setText("WORKIN BRO");
     	if(justEqualed)
     		clearDown(view);
     	dBox+="2";
@@ -235,7 +240,7 @@ public class MainActivity extends Activity {
     
     public void display(String display)
     {
-    	//t.setText(display);		//Set the textview to display the String we want (?)
-    	
+    	setContentView(R.layout.activity_main);		//<===Makes Program NOT CRASH!!!!
+    	t.setText(display);		//Set the TextView to display the String we want *****NOT WORKING*****	
     }
 }
