@@ -16,18 +16,18 @@ public class MainActivity extends Activity {
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
-    	setContentView(R.layout.activity_main);		//<===Makes Program NOT CRASH!!!!
-    	stored = dBox = "";
-    	justEqualed = false;
+    	setContentView(R.layout.activity_main);		//<===Makes Program WORK!!!!		#DontKnowWhy
     	t = (TextView)findViewById(R.id.textView1);
     	//t.isInEditMode();
     	//String test = "TEST";
-    	t.setText("test");
+    	t.setText("0");
+    	////
     	
+    	stored = dBox = "";
+    	justEqualed = false;
     	
         super.onCreate(savedInstanceState);
-        
-        setContentView(R.layout.activity_main);
+       
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -240,7 +240,8 @@ public class MainActivity extends Activity {
     
     public void display(String display)
     {
-    	setContentView(R.layout.activity_main);		//<===Makes Program NOT CRASH!!!!
+    	//setContentView(R.layout.activity_main);		//<===Makes Program NOT CRASH!!!!
     	t.setText(display);		//Set the TextView to display the String we want *****NOT WORKING*****	
+    	//t.setText("Numbers Working");
     }
 }
