@@ -20,5 +20,6 @@
     <string name="buttonEquals">=</string>
     <string name="buttonClear">CLEAR</string>
     <string name="DisplayBox"></string>
+    <string name="buttonDot">.</string>
 
 </resources>

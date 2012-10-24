@@ -13,7 +13,6 @@ public class MainActivity extends Activity {
 	boolean justEqualed;
 	TextView t;
 	
-	
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	setContentView(R.layout.activity_main);		//<===Makes Program WORK!!!!		#DontKnowWhy
@@ -25,6 +24,7 @@ public class MainActivity extends Activity {
     	
     	stored = dBox = "";
     	justEqualed = false;
+    	function = ' ';
     	
         super.onCreate(savedInstanceState);
        
@@ -33,6 +33,7 @@ public class MainActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
     	stored = dBox = "";
     	justEqualed = false;
+    	function = ' ';
     	
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
@@ -69,7 +70,7 @@ public class MainActivity extends Activity {
     public void buttonDown5(View view)
     {
     	if(justEqualed)
-    		clearDown(view);
+    		clearDown/**PETER STANLEY**/(view);
     	dBox+="5";
     	display(dBox);
     }
@@ -125,6 +126,11 @@ public class MainActivity extends Activity {
     		function = '*';
     		return;
     	}
+   /* 	if (function != ' ')
+    	{
+    		function = '*';
+    		return;
+    	}*/
     	
     	stored = doMath(stored,function,dBox);
     	function = '*';
@@ -138,6 +144,10 @@ public class MainActivity extends Activity {
     	{
     		stored = dBox;
     		dBox = "";
+    		function = '/';
+    		return;
+    	}if (function != ' ')
+    	{
     		function = '/';
     		return;
     	}
@@ -156,6 +166,10 @@ public class MainActivity extends Activity {
     		dBox = "";
     		function = '+';
     		return;
+    	}if (function != ' ')
+    	{
+    		function = '+';
+    		return;
     	}
     	
     	stored = doMath(stored,function,dBox);
@@ -170,6 +184,10 @@ public class MainActivity extends Activity {
     	{
     		stored = dBox;
     		dBox = "";
+    		function = '-';
+    		return;
+    	}if (function != ' ')
+    	{
     		function = '-';
     		return;
     	}
