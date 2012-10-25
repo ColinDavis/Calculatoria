@@ -15,19 +15,15 @@ public class MainActivity extends Activity {
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
-    	setContentView(R.layout.activity_main);		//<===Makes Program WORK!!!!		#DontKnowWhy
+    	setContentView(R.layout.activity_main);		//<===Makes Program WORK!!!!
     	t = (TextView)findViewById(R.id.textView1);
-    	//t.isInEditMode();
-    	//String test = "TEST";
     	t.setText("0");
-    	////
     	
     	stored = dBox = "";
     	justEqualed = false;
     	function = ' ';
     	
-        super.onCreate(savedInstanceState);
-       
+        super.onCreate(savedInstanceState); 
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -146,11 +142,12 @@ public class MainActivity extends Activity {
     		dBox = "";
     		function = '/';
     		return;
-    	}if (function != ' ')
+    	}
+    	/*if (function != ' ')
     	{
     		function = '/';
     		return;
-    	}
+    	}*/
     	
     	stored = doMath(stored,function,dBox);
     	function = '/';
@@ -166,11 +163,12 @@ public class MainActivity extends Activity {
     		dBox = "";
     		function = '+';
     		return;
-    	}if (function != ' ')
+    	}
+    	/*if (function != ' ')
     	{
     		function = '+';
     		return;
-    	}
+    	}*/
     	
     	stored = doMath(stored,function,dBox);
     	function = '+';
@@ -186,11 +184,12 @@ public class MainActivity extends Activity {
     		dBox = "";
     		function = '-';
     		return;
-    	}if (function != ' ')
+    	}
+    	/*if (function != ' ')
     	{
     		function = '-';
     		return;
-    	}
+    	}*/
     	
     	stored = doMath(stored,function,dBox);
     	function = '-';
@@ -199,11 +198,13 @@ public class MainActivity extends Activity {
     }
     public void equalsDown(View view)
     {
-    	justEqualed = false;
-    	stored = doMath(stored,function,dBox);
-    	display(stored);
-    	dBox = "";
-    	function = ' ';
+    	if(justEqualed = false)
+    	{
+    		stored = doMath(stored,function,dBox);
+    		display(stored);
+    		dBox = "";
+    		function = ' ';
+    	}
     	
     	justEqualed = true;
     }
@@ -231,6 +232,8 @@ public class MainActivity extends Activity {
     			ans = x1*x2;
     			return ans+"";
     		case '/':
+    			if(x2 == 0)
+    				return "ERROR: /0";
     			ans = x1/x2;
     			return ans+"";
     		case '+':
@@ -258,8 +261,6 @@ public class MainActivity extends Activity {
     
     public void display(String display)
     {
-    	//setContentView(R.layout.activity_main);		//<===Makes Program NOT CRASH!!!!
-    	t.setText(display);		//Set the TextView to display the String we want *****NOT WORKING*****	
-    	//t.setText("Numbers Working");
+    	t.setText(display);		//Set the TextView to display the String we want
     }
 }
