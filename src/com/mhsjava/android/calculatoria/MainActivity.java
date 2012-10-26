@@ -40,7 +40,8 @@ public class MainActivity extends Activity {
     	if(justEqualed)			//if the equal button(NONEXISTANT) was just pressed
     		clearDown(view);		//pretend the user clicked clear also (WON'T HAPPEN)
     	dBox += "1";			//add the data value for the button (# or '.') to the displayed string
-    	display(dBox);			//update the display to match this change
+    	display(dBox);		//update the display to match this change
+    	justEqualed = false;	
     }
     public void buttonDown2(View view)
     {
@@ -48,6 +49,7 @@ public class MainActivity extends Activity {
     		clearDown(view);
     	dBox+="2";
     	display(dBox);
+    	justEqualed = false;
     }
     public void buttonDown3(View view)
     {
@@ -55,6 +57,7 @@ public class MainActivity extends Activity {
     		clearDown(view);
     	dBox+="3";
     	display(dBox);
+    	justEqualed = false;
     }
     public void buttonDown4(View view)
     {
@@ -62,6 +65,7 @@ public class MainActivity extends Activity {
     		clearDown(view);
     	dBox+="4";
     	display(dBox);
+    	justEqualed = false;
     }
     public void buttonDown5(View view)
     {
@@ -69,6 +73,7 @@ public class MainActivity extends Activity {
     		clearDown/**PETER STANLEY**/(view);
     	dBox+="5";
     	display(dBox);
+    	justEqualed = false;
     }
     public void buttonDown6(View view)
     {
@@ -76,6 +81,7 @@ public class MainActivity extends Activity {
     		clearDown(view);
     	dBox+="6";
     	display(dBox);
+    	justEqualed = false;
     }
     public void buttonDown7(View view)
     {
@@ -83,6 +89,7 @@ public class MainActivity extends Activity {
     		clearDown(view);
     	dBox+="7";
     	display(dBox);
+    	justEqualed = false;
     }
     public void buttonDown8(View view)
     {
@@ -90,6 +97,7 @@ public class MainActivity extends Activity {
     		clearDown(view);
     	dBox+="8";
     	display(dBox);
+    	justEqualed = false;
     }
     public void buttonDown9(View view)
     {
@@ -97,6 +105,7 @@ public class MainActivity extends Activity {
     		clearDown(view);
     	dBox+="9";
     	display(dBox);
+    	justEqualed = false;
     }
     public void buttonDown0(View view)
     {
@@ -104,17 +113,21 @@ public class MainActivity extends Activity {
     		clearDown(view);
     	dBox+="0";
     	display(dBox);
+    	justEqualed = false;
     }
     public void pointDown(View view)
     {
     	if(justEqualed)
     		clearDown(view);
     	dBox += ".";
-    	display(dBox+".");
+    	display(dBox);
+    	justEqualed = false;
     }
     
     public void starDown(View view)
     {
+    	if (justEqualed)
+    		function = '*';
     	if (stored.equals(""))
     	{
     		stored = dBox;
@@ -122,19 +135,22 @@ public class MainActivity extends Activity {
     		function = '*';
     		return;
     	}
-   /* 	if (function != ' ')
+    	if (function != ' ')
     	{
     		function = '*';
-    		return;
-    	}*/
+    		//return;
+    	}
     	
     	stored = doMath(stored,function,dBox);
-    	function = '*';
+    	//function = '*';
     	dBox = "";
     	display(stored);
     }
     public void slashDown(View view)
     {
+    	if (justEqualed)
+    		function = '/';
+
     	justEqualed = false;
     	if (stored.equals(""))
     	{
@@ -143,19 +159,22 @@ public class MainActivity extends Activity {
     		function = '/';
     		return;
     	}
-    	/*if (function != ' ')
+    	
+    	if (function != ' ')
     	{
     		function = '/';
-    		return;
-    	}*/
+    		//return;
+    	}
     	
     	stored = doMath(stored,function,dBox);
-    	function = '/';
+    	//function = '/';
     	dBox = "";
     	display(stored);
     }
     public void plusDown(View view)
     {
+    	if (justEqualed)
+    		function = '+';
     	justEqualed = false;
     	if (stored.equals(""))
     	{
@@ -164,19 +183,21 @@ public class MainActivity extends Activity {
     		function = '+';
     		return;
     	}
-    	/*if (function != ' ')
+    	if (function != ' ')
     	{
     		function = '+';
-    		return;
-    	}*/
+    		//return;
+    	}
     	
     	stored = doMath(stored,function,dBox);
-    	function = '+';
+    	//function = '+';
     	dBox = "";
     	display(stored);
     }
     public void minusDown(View view)
     {
+    	if (justEqualed)
+    		function = '-';
     	justEqualed = false;
     	if (stored.equals(""))
     	{
@@ -185,20 +206,20 @@ public class MainActivity extends Activity {
     		function = '-';
     		return;
     	}
-    	/*if (function != ' ')
+    	if (function != ' ')
     	{
     		function = '-';
-    		return;
-    	}*/
+    		//return;
+    	}
     	
     	stored = doMath(stored,function,dBox);
-    	function = '-';
+    	//function = '-';
     	dBox = "";
     	display(stored);
     }
     public void equalsDown(View view)
     {
-    	if(justEqualed = false)
+    	if(justEqualed == false)
     	{
     		stored = doMath(stored,function,dBox);
     		display(stored);
@@ -211,10 +232,12 @@ public class MainActivity extends Activity {
     
     public void clearDown(View view)
     {
-    	stored = dBox = "";
+    	stored = "";
+    	dBox = "";
     	function = ' ';
 
     	justEqualed = false;
+    	display("0");
     }
     
     public String doMath(String a, char _, String b)
