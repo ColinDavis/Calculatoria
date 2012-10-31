@@ -136,13 +136,9 @@ public class MainActivity extends Activity {
     		return;
     	}
     	if (function != ' ')
-    	{
     		function = '*';
-    		//return;
-    	}
     	
     	stored = doMath(stored,function,dBox);
-    	//function = '*';
     	dBox = "";
     	display(stored);
     }
@@ -161,13 +157,9 @@ public class MainActivity extends Activity {
     	}
     	
     	if (function != ' ')
-    	{
     		function = '/';
-    		//return;
-    	}
     	
     	stored = doMath(stored,function,dBox);
-    	//function = '/';
     	dBox = "";
     	display(stored);
     }
@@ -184,13 +176,9 @@ public class MainActivity extends Activity {
     		return;
     	}
     	if (function != ' ')
-    	{
     		function = '+';
-    		//return;
-    	}
     	
     	stored = doMath(stored,function,dBox);
-    	//function = '+';
     	dBox = "";
     	display(stored);
     }
@@ -207,13 +195,9 @@ public class MainActivity extends Activity {
     		return;
     	}
     	if (function != ' ')
-    	{
     		function = '-';
-    		//return;
-    	}
     	
     	stored = doMath(stored,function,dBox);
-    	//function = '-';
     	dBox = "";
     	display(stored);
     }
